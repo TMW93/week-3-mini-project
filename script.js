@@ -4,9 +4,6 @@ const possibleInputs = ['R', 'P', 'S'];
 
 console.log(`These are the possible inputs : ${possibleInputs}.`);
 
-// let gameConfirm = confirm("Are you sure?");
-// console.log(`This is your input: ${gameConfirm}`);
-
 //Game stats
 let gameStats = {
   wins: 0,
@@ -19,7 +16,7 @@ let gameStats = {
   }
 }
 
-console.log(`These are the game stats: ${gameStats.wins}`);
+// console.table(gameStats);
 
 //Checks user input and updates game stats if input is valid
 function inputCheck(user) {
@@ -42,7 +39,6 @@ function aiTurn() {
 }
 
 //Compares user and AI input to determine result
-//AI wins can be 1 line of code when code works
 function winCheck(user, ai) {
   let result;
   if(user === possibleInputs[0] && ai === possibleInputs[0]) {
@@ -134,12 +130,11 @@ function gameStart() {
       break;
     }
   }
+  alert("Game Over!");
 }
 
-gameStart();
+// gameStart();
 
-//After game stops stat screen will show
 // alert("Here are the game stats:\n", gameStats);
-
 
 console.log(`End of code. It's working`);
