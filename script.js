@@ -48,39 +48,39 @@ function winCheck(user, ai) {
   if(user === possibleInputs[0] && ai === possibleInputs[0]) {
     //Rock Tie 
     result = "tie";
-    alert(`It's a tie!`);
+    alert(`You chose Rock.\nComputer Chose Rock.\nIt's a Tie!`);
   } else if (user === possibleInputs[1] && ai === possibleInputs[1]) {
     //Paper Tie
     result = "tie";
-    alert(`It's a tie!`);
+    alert(`You chose Paper.\nComputer Chose Paper.\nIt's a Tie!`);
   } else if(user === possibleInputs[2] && ai === possibleInputs[2]) {
     //Scissors Tie
     result = "tie";
-    alert(`It's a tie!`);
+    alert(`You chose Scissors.\nComputer Chose Scissors.\nIt's a Tie!`);
   } else if(user === possibleInputs[0] && ai === possibleInputs[2]) {
     //User Rock Wins
     result = "win";
-    alert(`You win!`);
+    alert(`You chose Rock.\nComputer Chose Paper.\nYou Win!`);
   } else if(user === possibleInputs[2] && ai === possibleInputs[0]) {
     //AI Rock Wins
     result = "loss";
-    alert(`You lose!`);
+    alert(`You chose Scissors.\nComputer Chose Rock.\nYou Lose!`);
   } else if(user === possibleInputs[1] && ai === possibleInputs[0]) {
     //User Paper Wins
     result = "win";
-    alert(`You win!`);
+    alert(`You chose Paper.\nComputer Chose Rock.\nYou Win!`);
   } else if(user === possibleInputs[0] && ai === possibleInputs[1]) {
     //AI Paper Wins
     result = "loss";
-    alert(`You lose!`);
+    alert(`You chose Rock.\nComputer Chose Paper.\nYou Lose!`);
   } else if(user === possibleInputs[2] && ai === possibleInputs[1]) {
     //User Scissors Win
     result = "win";
-    alert(`You win!`);
+    alert(`You chose Scissors.\nComputer Chose Paper.\nYou Win!`);
   } else if(user === possibleInputs[1] && ai === possibleInputs[2]) {
     //AI Scissors Win
     result = "loss";
-    alert(`You lose!`);
+    alert(`You chose Scissors.\nComputer Chose Rock.\nYou Lose!`);
   }
   return result;
 }
