@@ -34,6 +34,7 @@ function inputCheck(user) {
   }
 }
 
+//Gives the AI an input
 function aiTurn() {
   let randElement = Math.floor(Math.random() * possibleInputs.length);
   let aiChoice = possibleInputs[randElement];
@@ -46,52 +47,52 @@ function winCheck(user, ai) {
   let result;
   if(user === possibleInputs[0] && ai === possibleInputs[0]) {
     //Rock Tie 
+    result = "tie";
   } else if (user === possibleInputs[1] && ai === possibleInputs[1]) {
     //Paper Tie
+    result = "tie";
   } else if(user === possibleInputs[2] && ai === possibleInputs[2]) {
     //Scissors Tie
+    result = "tie";
   } else if(user === possibleInputs[0] && ai === possibleInputs[2]) {
     //User Rock Wins
+    result = "win";
   } else if(user === possibleInputs[2] && ai === possibleInputs[0]) {
     //AI Rock Wins
+    result = "loss";
   } else if(user === possibleInputs[1] && ai === possibleInputs[0]) {
     //User Paper Wins
+    result = "win";
   } else if(user === possibleInputs[0] && ai === possibleInputs[1]) {
     //AI Paper Wins
+    result = "loss";
   } else if(user === possibleInputs[2] && ai === possibleInputs[1]) {
     //User Scissors Win
+    result = "win";
   } else if(user === possibleInputs[1] && ai === possibleInputs[2]) {
     //AI Scissors Win
+    result = "loss";
   }
   return result;
 }
 
 //Storing results in game stats
-//AI wins can be 1 line of code when code works
 function resultStore(gameResult) {
-  if(gameResult === 1) {
-    //User wins with rock
-
-  } else if(gameResult === 2) {
-    //User wins with paper
-
-  } else if(gameResult === 3) {
-    //User wins with scissors
-
-  } else if(gameResult === 4) {
-    //AI wins with rock
-
-  } else if(gameResult === 5) {
-    //AI wins with paper
-
-  } else if(gameResult === 6) {
-    //AI wins with scissors
+  if(gameResult === "win") {
+    //User wins
+    gameStats.wins++;
+  } else if(gameResult === "loss") {
+    //AI wins
+    gameStats.losses++;
+  } else if(gameResult === "tie") {
+    //Tie Game
+    gameStats.ties++;
   }
  }
 
+ //RPS will run until the function returns a false boolean
 function gameContinue() {
   let game = true;
-  //RPS will run until the function returns a false boolean
   if(game) {
     let userContinue = confirm("Do you want to keep playing?");
     if(!userContinue){
@@ -105,6 +106,7 @@ function gameContinue() {
 function gameStart() {
   let gameRun = true;
   let turnCounter = 1;
+  let results;
   while(gameRun) {
     //Take Input
     prompt("Rock Paper Scissors");
@@ -115,9 +117,9 @@ function gameStart() {
     //Run AIs turn
     let aiInput = aiTurn();
     //Check Results
-    winCheck(userInput, aiInput);
+    results = winCheck(userInput, aiInput);
     //Store Results
-
+    resultStore(results);
     //Check if user wants to continue
     gameRun = gameContinue();
     if(!gameRun) {
@@ -132,4 +134,4 @@ function gameStart() {
 //After game stops stat screen will show
 
 
-console.log(`This is your input: ${myInput}`);
+console.log(`End of code. It's working`);
