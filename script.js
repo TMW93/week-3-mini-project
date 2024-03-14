@@ -2,10 +2,10 @@ console.log(`Script is working.`);
 
 const possibleInputs = ['R', 'P', 'S'];
 
+console.log(`These are the possible inputs : ${possibleInputs}.`);
+
 // let gameConfirm = confirm("Are you sure?");
 // console.log(`This is your input: ${gameConfirm}`);
-
-// let myInput = gameStart();
 
 //Game stats
 let gameStats = {
@@ -18,6 +18,8 @@ let gameStats = {
     scissors: 0
   }
 }
+
+console.log(`These are the game stats: ${gameStats.wins}`);
 
 //Checks user input and updates game stats if input is valid
 function inputCheck(user) {
@@ -33,9 +35,13 @@ function inputCheck(user) {
 }
 
 function aiTurn() {
+  let randElement = Math.floor(Math.random() * possibleInputs.length);
+  let aiChoice = possibleInputs[randElement];
+  return aiChoice;
 }
 
 //Compares user and AI input to determine result
+//AI wins can be 1 line of code when code works
 function winCheck(user, ai) {
   let result;
   if(user === possibleInputs[0] && ai === possibleInputs[0]) {
@@ -60,6 +66,29 @@ function winCheck(user, ai) {
   return result;
 }
 
+//Storing results in game stats
+//AI wins can be 1 line of code when code works
+function resultStore(gameResult) {
+  if(gameResult === 1) {
+    //User wins with rock
+
+  } else if(gameResult === 2) {
+    //User wins with paper
+
+  } else if(gameResult === 3) {
+    //User wins with scissors
+
+  } else if(gameResult === 4) {
+    //AI wins with rock
+
+  } else if(gameResult === 5) {
+    //AI wins with paper
+
+  } else if(gameResult === 6) {
+    //AI wins with scissors
+  }
+ }
+
 function gameContinue() {
   let game = true;
   //RPS will run until the function returns a false boolean
@@ -74,22 +103,23 @@ function gameContinue() {
 
 //Game Runs
 function gameStart() {
-  let gameRun = gameContinue()
+  let gameRun = true;
   let turnCounter = 1;
   while(gameRun) {
     //Take Input
-    let userInput = prompt("Rock Paper Scissors");
+    prompt("Rock Paper Scissors");
     //Check Input
 
     //Store Input and turn counter if valid
 
     //Run AIs turn
-
+    let aiInput = aiTurn();
     //Check Results
-
+    winCheck(userInput, aiInput);
     //Store Results
 
     //Check if user wants to continue
+    gameRun = gameContinue();
     if(!gameRun) {
       break;
     } else {
