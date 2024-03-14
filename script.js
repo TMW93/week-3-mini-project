@@ -48,30 +48,39 @@ function winCheck(user, ai) {
   if(user === possibleInputs[0] && ai === possibleInputs[0]) {
     //Rock Tie 
     result = "tie";
+    alert(`It's a tie!`);
   } else if (user === possibleInputs[1] && ai === possibleInputs[1]) {
     //Paper Tie
     result = "tie";
+    alert(`It's a tie!`);
   } else if(user === possibleInputs[2] && ai === possibleInputs[2]) {
     //Scissors Tie
     result = "tie";
+    alert(`It's a tie!`);
   } else if(user === possibleInputs[0] && ai === possibleInputs[2]) {
     //User Rock Wins
     result = "win";
+    alert(`You win!`);
   } else if(user === possibleInputs[2] && ai === possibleInputs[0]) {
     //AI Rock Wins
     result = "loss";
+    alert(`You lose!`);
   } else if(user === possibleInputs[1] && ai === possibleInputs[0]) {
     //User Paper Wins
     result = "win";
+    alert(`You win!`);
   } else if(user === possibleInputs[0] && ai === possibleInputs[1]) {
     //AI Paper Wins
     result = "loss";
+    alert(`You lose!`);
   } else if(user === possibleInputs[2] && ai === possibleInputs[1]) {
     //User Scissors Win
     result = "win";
+    alert(`You win!`);
   } else if(user === possibleInputs[1] && ai === possibleInputs[2]) {
     //AI Scissors Win
     result = "loss";
+    alert(`You lose!`);
   }
   return result;
 }
@@ -105,18 +114,17 @@ function gameContinue() {
 //Game Runs
 function gameStart() {
   let gameRun = true;
-  let turnCounter = 1;
+  // let turnCounter = 1;
   let results;
+  let userInput;
   while(gameRun) {
     //Take Input
-    prompt("Rock Paper Scissors");
-    //Check Input
-
-    //Store Input and turn counter if valid
-
+    userInput = prompt("Rock Paper Scissors");
+    //CHeck and store Input if valid
+    inputCheck(userInput);
     //Run AIs turn
     let aiInput = aiTurn();
-    //Check Results
+    //Check Results and display results
     results = winCheck(userInput, aiInput);
     //Store Results
     resultStore(results);
@@ -124,14 +132,14 @@ function gameStart() {
     gameRun = gameContinue();
     if(!gameRun) {
       break;
-    } else {
-      //Increase turn counter
-      turnCounter++;
     }
   }
 }
 
+gameStart();
+
 //After game stops stat screen will show
+// alert("Here are the game stats:\n", gameStats);
 
 
 console.log(`End of code. It's working`);
